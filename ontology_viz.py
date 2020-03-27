@@ -61,9 +61,9 @@ class OntologyGraph:
                     self.add_to_classes(s)
                 else:
                     self.instances[s] = o
-                    if str(o) not in self.config.colors.ins:
-                        self.add_to_classes(o)
-                        self.add_edge((s, p, o))
+#                     if str(o) not in self.config.colors.ins:
+#                         self.add_to_classes(o)
+#                         self.add_edge((s, p, o))
             elif p in self.config.label_property:
                 self.labels[s] = o
             elif p in self.config.tooltip_property:
@@ -99,8 +99,8 @@ class OntologyGraph:
     def convert(self):
         node_strings = []
         edge_strings = []
-        for class_ in self.classes:
-            node_strings.append(self._dot_class_node(class_))
+#         for class_ in self.classes:
+#             node_strings.append(self._dot_class_node(class_))
         for instance, class_ in self.instances.items():
             node_strings.append(self._dot_instance_node(instance, class_))
         for uri, literal in self.literals:
